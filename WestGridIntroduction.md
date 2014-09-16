@@ -63,12 +63,16 @@ You will also want to make a global scratch folder, which is another term for a 
 While you are at it, creating a file structure is a very, very good idea. Not only willl you be improving your own ability to navigate on the interactive node, but this will be very helpful to others coming in to help you (it is not a good idea to upset those you rely upon for tech support)!
 
 A good file structure could be as follows:
-/home
-	/USERNAME
-		/work 		_for scratch work, edited files, and temporary files_
-		/data		_for raw data_
-		/source		_for source code_
-		/software	_for any additional software you might have to install_
+
+    /home
+	    /USERNAME
+		    /work 		_for scratch work, edited files, and temporary files_
+		    
+		    /data		_for raw data_
+		    
+		    /source		_for source code_
+		    
+		    /software	_for any additional software you might have to install_
 
 
 #### Running software in the interactive shell ####
