@@ -17,7 +17,7 @@ When working with WestGrid, the user interacts with the [interactive node](#INT)
 
 After testing your code, if you are ready to send a job to the supercomputers, you create a [PBS script](#PBSScript). This script includes three vital pieces of information: the memory requirements, the processing requirements, and the wall time that the job will take. These variables are read by a machine called ["moab"](#moab), which decides which jobs to submit to the resource manager (this is to ensure that memory and processing power is distributed optimally). After moab prioritizes the jobs being sent to WestGrid, it informs the resource manager which jobs to pass on to which computing nodes on WestGrid. 
 
-### <a name="INT"></a> The Interactive Node ### 
+### <a name="INT"></a> The Interactive Node 
 There are a number of ways to work with the interactive node - you can access it through the command line (using Terminal or iTerm on Unix systems), or through a number of applications such as FileZilla or any other file transfer protocol (FTP) programs. 
 
 To use the terminal, you access WestGrid's interactive node "Nestor" using any one of the following commands:
