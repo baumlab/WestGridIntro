@@ -22,7 +22,7 @@ There are a number of ways to work with the interactive node - you can access it
 
 To use the terminal, you access WestGrid's interactive node "Nestor" using any one of the following commands:
 
-`ssh USERNAME@nestor.westgrid.ca`
+`ssh -XY USERNAME@nestor.westgrid.ca`
 
 * Login to a server remote using a secure shell (ssh)
 
@@ -80,19 +80,20 @@ Any folder you might want to make can be created by running `mkdir DIRECTORYNAME
 
 Before running any code, a few steps are required.
 
-1. **Check software lists** to make sure that the software you need (in the correct version) is on the machine by typing:
-    `cd /global/software
-    ls`
+1.**Check software lists** to make sure that the software you need (in the correct version) is on the machine by typing:
+
+    cd /global/software
+    ls
 
 If the software you need is not included, you'll need to either contact Belaid Moa (bmoa@uvic.ca) or install the software yourself in your /software folder. 
 
-2. **Load the software you are going to need**. The administrators of WestGrid have made this very easy! Once you have the name of the software you need (R, for example), type
+2.**Load the software you are going to need**. The administrators of WestGrid have made this very easy! Once you have the name of the software you need (R, for example), type
 
     module avail R        		*Lists the available versions of R
     module load MODULE_REQUIRED	*Loads the software you require
     which R        				* Returns the version of R currently being used on the machine
 
-3. **Load any data or scripts required.** You can do this using FTP software, or in the command line using 
+3.**Load any data or scripts required.** You can do this using FTP software, or in the command line using 
 
     scp FILE_TO_COPY.txt USERNAME@nestor.westgrid.ca /path/to/file/on/nestor
 
@@ -100,7 +101,7 @@ Alternatively, if you data are on GitHub, you can load it using:
     
     git clone https://github.com/.../Project_Name
 
-4. **Edit your files if needed.** For example, change file paths in scripts so that they all point to the right places. There are a number of ways to edit files on Nestor, but a good place to start is using vim:
+4.**Edit your files if needed.** For example, change file paths in scripts so that they all point to the right places. There are a number of ways to edit files on Nestor, but a good place to start is using vim:
 
     vi NAME_OF_FILE
 
@@ -188,7 +189,15 @@ There are a number of commands that can be used to interact with moab.
 	checkjob JOB_NAME	*Check the status of a job
 	canceljob JOB_NAME	*Cancel a job (more forceful than qdel)
 
+### After the Code is Complete ###
 
-### <a name="bestprac"></a> Best Practices of Using WestGrid for Computation ###
+After the WestGrid servers have completed running your code, you will want to move the results back to your local machine using 
 
-First and foremost, try to split your job into multiple smaller jobs. This way, multiple nodes can be used to complete your task, not only reducing the total time it will take to run the code, but also making it easier for your code to begin running. In addition, by creating smaller jobs, it is far easier to cancel them if an unexpected error comes up without wasting both your time and server time.
+	scp USERNAME@nestor.westgrid.ca:FILE_TO_COPY.txt /local/path/to/file
+
+
+### <a name="bestprac"></a> Best Practices of Using WestGrid for Computation, including Parallelization ###
+
+When submitting a large job to WestGrid, try to split your job into multiple smaller jobs. This way, multiple nodes can be used to complete your task, not only reducing the total time it will take to run the code, but also making it easier for your code to begin running. In addition, by creating sub-jobs that work simultaneously, it is far easier to cancel your script if an unexpected error comes up - preventing a waste of not only your time, but also server time.
+
+To break up R scripts into multiple jobs, consider parallelization. There are a number of R packages that allow for parallelization, including [parallel](https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf), [mpi](http://cran.r-project.org/web/packages/Rmpi/index.html), [snow](http://cran.r-project.org/web/packages/snow/snow.pdf), and [snowfall](http://cran.r-project.org/web/packages/snowfall/index.html). These packages allow for different nodes to work in tandem, relaying information back and forth as required. Parallelization spreads computation and data amongst different nodes, decreasing the memory required for each interal process and increasing the speed of computation overall. 
