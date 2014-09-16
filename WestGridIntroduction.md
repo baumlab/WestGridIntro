@@ -18,14 +18,14 @@ To use the terminal, you access WestGrid's interactive node "Nestor" using any o
 
     sftp USERNAME@nestor.westgrid.ca
 
-* SSH Secure File Transfer Protocol - open the connection using a file transfer protocol
+SSH Secure File Transfer Protocol - open the connection using a file transfer protocol
 
 
     scp FILE_TO_COPY.txt USERNAME@nestor.westgrid.ca /path/to/file/on/remote/system
 
-* Secure copy - copies the file "FILE_TO_COPY.txt" _to the server_ from your local machine, pasting it to the remote location you designate
+Secure copy - copies the file "FILE_TO_COPY.txt" *to the server* from your local machine, pasting it to the remote location you designate
 
 
     scp USERNAME@nestor.westgrid.ca:FILE_TO_COPY.txt /local/path/to/file
 
-* Secure copy - copies the file "FILE_TO_COPY.txt" _from the server_ to the local location you designate
+Secure copy - copies the file "FILE_TO_COPY.txt" *from the server* to the local location you designate
