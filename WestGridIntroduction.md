@@ -7,7 +7,7 @@ The WestGrid server setup can be visualized like this:
 
 ![WestGrid Diagram](https://github.com/mairind/WestGridIntro/blob/master/Images/WestGridDiagram.jpg)
 
-***Figure 1.** A diagrammatic representation of WestGrid's server setup. Your local machine connects to an interactive node, which can pass jobs on to WestGrid via a resource manager controlled by moab. Users can interact with their own local machine, the interactive node, and moab; however, the resource manager and the computing nodes of WestGrid cannot be interacted with directly.*
+_**Figure 1.** A diagrammatic representation of WestGrid's server setup. Your local machine connects to an interactive node, which can pass jobs on to WestGrid via a resource manager controlled by moab. Users can interact with their own local machine, the interactive node, and moab; however, the resource manager and the computing nodes of WestGrid cannot be interacted with directly._
 
 ### Workflow overview ###
 
