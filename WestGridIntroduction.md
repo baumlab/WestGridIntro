@@ -147,15 +147,47 @@ Above is the first section that lists the requirements. It is read by moab, and 
 
 Below the requirements, you outline your code:
 
-	cd $PBS_0_WORKDIR 		*The directory from which the script is run is loaded automatically as your working directory
+	cd $PBS_0_WORKDIR 			*The directory from which the script is run is loaded automatically as your working directory
 	module load R/R_VERSION 	*Load the R software required for the code
-	echo "Starting program..." *This is not required - it simply sends a message to the terminal letting you know that it has begun
+	echo "Starting program..." 		*This is not required - it simply sends a message to the terminal letting you know that it has begun
 	RScript Env_Covars.R 		*Run the RScript
 	echo "End program with exit status $? at 'date'"
 
 
+The entire PBS script looks like this:
+
+	#!/bin/bash -l 
+    # PBS -N Env_Covar_Job			
+	# PBS -l walltime=2:00:00		
+	# PBS -l procs=1 					
+	# PBS -l mem=2gb 					
+	# PBS -j oe
+	# PBS -M EMAIL@uvic.ca 				
+	# PBS -m bea
+
+	cd $PBS_0_WORKDIR
+	module load R/R_VERSION
+	echo "Starting program..." 
+	RScript Env_Covars.R 		
+	echo "End program with exit status $? at 'date
+
+Note that the requirements section is written with comment characters at the beginning of each line - these comments indicate which lines should be read by moab and which should be ignored. The first uncommented line indicates where moab will stop reading, so the structure of your PBS script is very important! 
+
+After writing a PBS script, it is submitted to moab using
+
+	qsub Env_Covar.pbs
+
+At this point, moab reads the requirements for your script and sends it to the resource manager, which then sends it to the appropriate computational node of WestGrid depending on what your script requires. Your job is given a ticket number which may come in handy in case you run into technical troubles. You can check the ticket numbers of jobs you have running by typing `qsub -u USERNAME`. 
+
 ### <a name="moab"></a> Interacting with moab ###
 
+There are a number of commands that can be used to interact with moab. 
+
+	qdel JOB_NAME		*Deletes a job
+	qstat JOB_NAME		*Status of the queue
+	qsub JOB_NAME		*Submit a job
+	checkjob JOB_NAME	*Check the status of a job
+	canceljob JOB_NAME	*Cancel a job (more forceful than qdel)
 
 
 ### <a name="bestprac"></a> Best Practices of Using WestGrid for Computation ###
