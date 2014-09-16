@@ -7,4 +7,22 @@ The WestGrid server setup can be visualized like this:
 
 ![WestGrid Diagram](https://github.com/mairind/WestGridIntro/blob/master/Images/WestGridDiagram.jpg)
 
-When working with WestGrid, the user interacts with the interactive node, which acts 
+When working with WestGrid, the user interacts with the interactive node. There are a number of ways to work with the interactive node - you can access it through the command line (using Terminal or iTerm on Unix systems), or through a number of applications such as FileZilla or any other file transfer protocol (FTP) programs. 
+
+To use the terminal, you access WestGrid's interactive node "Nestor" using any one of the following commands:
+
+> ssh USERNAME@nestor.westgrid.ca
+
+* Login to a server remote using a secure shell (ssh)
+
+> sftp USERNAME@nestor.westgrid.ca
+
+* SSH Secure File Transfer Protocol - open the connection using a file transfer protocol
+
+> scp FILE_TO_COPY.txt USERNAME@nestor.westgrid.ca /path/to/file/on/remote/system
+
+* Secure copy - copies the file "FILE_TO_COPY.txt" _to the server_ from your local machine, pasting it to the remote location you designate
+
+> scp USERNAME@nestor.westgrid.ca:FILE_TO_COPY.txt /local/path/to/file
+
+* Secure copy - copies the file "FILE_TO_COPY.txt" _from the server_ to the local location you designate
