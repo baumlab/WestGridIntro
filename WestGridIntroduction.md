@@ -114,7 +114,7 @@ This will open an external text editor called "jedit".
 
 #### Running R Code ####
 
-After editing your code, you can test your it by turning your R code into a script. To run your code as a script, insert a line above your R code that reads:
+After editing your code, you can test it by turning your R code into a script. To run your code as a script, insert a line above your R code that reads:
 
     #!/bin/env RScript
 
@@ -200,4 +200,4 @@ After the WestGrid servers have completed running your code, you will want to mo
 
 When submitting a large job to WestGrid, try to split your job into multiple smaller jobs. This way, multiple nodes can be used to complete your task, not only reducing the total time it will take to run the code, but also making it easier for your code to begin running. In addition, by creating sub-jobs that work simultaneously, it is far easier to cancel your script if an unexpected error comes up - preventing a waste of not only your time, but also server time.
 
-To break up R scripts into multiple jobs, consider parallelization. There are a number of R packages that allow for parallelization, including [parallel](https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf), [mpi](http://cran.r-project.org/web/packages/Rmpi/index.html), [snow](http://cran.r-project.org/web/packages/snow/snow.pdf), and [snowfall](http://cran.r-project.org/web/packages/snowfall/index.html). These packages allow for different nodes to work in tandem, relaying information back and forth as required. Parallelization spreads computation and data amongst different nodes, decreasing the memory required for each interal process and increasing the speed of computation overall. 
+To break up R scripts into multiple jobs, consider parallelization. There are a number of R packages that allow for parallelization, including [parallel](https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf), [mpi](http://cran.r-project.org/web/packages/Rmpi/index.html), [snow](http://cran.r-project.org/web/packages/snow/snow.pdf), and [snowfall](http://cran.r-project.org/web/packages/snowfall/index.html). These packages allow for different nodes to work in tandem, relaying information back and forth as required. Parallelization spreads computation and data amongst different nodes, decreasing the memory required for each internal process and increasing the speed of computation overall. 
