@@ -81,17 +81,16 @@ Any folder you might want to make can be created by running `mkdir DIRECTORYNAME
 Before running any code, a few steps are required.
 
 1. **Check software lists** to make sure that the software you need (in the correct version) is on the machine by typing:
-
-    cd /global/software
-    ls
+    `cd /global/software
+    ls`
 
 If the software you need is not included, you'll need to either contact Belaid Moa (bmoa@uvic.ca) or install the software yourself in your /software folder. 
 
-2. **Load the software you are going to need**. The administrators of WestGrid have made this very easy! Once you have the name of the software you need (R, for example), type:
+2. **Load the software you are going to need**. The administrators of WestGrid have made this very easy! Once you have the name of the software you need (R, for example), type
 
-   module avail R        		*Lists the available versions of R
-   module load MODULE_REQUIRED	*Loads the software you require
-   which R        				* Returns the version of R currently being used on the machine
+    module avail R        		*Lists the available versions of R
+    module load MODULE_REQUIRED	*Loads the software you require
+    which R        				* Returns the version of R currently being used on the machine
 
 3. **Load any data or scripts required.** You can do this using FTP software, or in the command line using 
 
@@ -147,10 +146,10 @@ Above is the first section that lists the requirements. It is read by moab, and 
 
 Below the requirements, you outline your code:
 
-	cd $PBS_0_WORKDIR 			*The directory from which the script is run is loaded automatically as your working directory
-	module load R/R_VERSION 	*Load the R software required for the code
+	cd $PBS_0_WORKDIR 				*The directory from which the script is run is loaded automatically as your working directory
+	module load R/R_VERSION 		*Load the R software required for the code
 	echo "Starting program..." 		*This is not required - it simply sends a message to the terminal letting you know that it has begun
-	RScript Env_Covars.R 		*Run the RScript
+	RScript Env_Covars.R 			*Run the RScript
 	echo "End program with exit status $? at 'date'"
 
 
