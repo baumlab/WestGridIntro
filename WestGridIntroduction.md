@@ -5,6 +5,6 @@ WestGrid is a government funded program designed to provide researchers access t
 
 The WestGrid server setup can be visualized like this:
 
-![WestGrid Diagram](http://github.com/mairind/WestGridIntro/Images/WestGridDiagram.jpg)
+![WestGrid Diagram](https://github.com/mairind/WestGridIntro/blob/master/Images/WestGridDiagram.jpg)
 
 When working with WestGrid, the user interacts with the interactive node, which acts 
