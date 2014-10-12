@@ -120,7 +120,7 @@ After editing your code, you can test it by turning your R code into a script. T
 
 After saving your code, you can then run it using:
 
-    RScript CODE_NAME.R
+    Rscript CODE_NAME.R
 
 ### Creating a PBS Script <a name="PBSScript"></a> ###
 
@@ -150,7 +150,7 @@ Below the requirements, you outline your code:
 	cd $PBS_0_WORKDIR 				*The directory from which the script is run is loaded automatically as your working directory
 	module load R/R_VERSION 		*Load the R software required for the code
 	echo "Starting program..." 		*This is not required - it simply sends a message to the terminal letting you know that it has begun
-	RScript Env_Covars.R 			*Run the RScript
+	Rscript Env_Covars.R 			*Run the RScript
 	echo "End program with exit status $? at 'date'"
 
 
@@ -168,7 +168,7 @@ The entire PBS script looks like this:
 	cd $PBS_0_WORKDIR
 	module load R/R_VERSION
 	echo "Starting program..." 
-	RScript Env_Covars.R 		
+	Rscript Env_Covars.R 		
 	echo "End program with exit status $? at 'date
 
 Note that the requirements section is written with comment characters at the beginning of each line - these comments indicate which lines should be read by moab and which should be ignored. The first uncommented line indicates where moab will stop reading, so the structure of your PBS script is very important! 
@@ -177,7 +177,7 @@ After writing a PBS script, it is submitted to moab using
 
 	qsub Env_Covar.pbs
 
-At this point, moab reads the requirements for your script and sends it to the resource manager, which then sends it to the appropriate computational node of WestGrid depending on what your script requires. Your job is given a ticket number which may come in handy in case you run into technical troubles. You can check the ticket numbers of jobs you have running by typing `qsub -u USERNAME`. 
+At this point, moab reads the requirements for your script and sends it to the resource manager, which then sends it to the appropriate computational node of WestGrid depending on what your script requires. Your job is given a ticket number which may come in handy in case you run into technical troubles. You can check the ticket numbers of jobs you have running by typing `qstat -u USERNAME`. 
 
 ### <a name="moab"></a> Interacting with moab ###
 
